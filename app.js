@@ -13,6 +13,7 @@ app.post('/webhook', (req, res) => {
 })
 app.listen(port)
 
+
 reply = (reply_token) => {
   let header = {
     'Content-Type': 'application/json',
@@ -33,8 +34,8 @@ reply = (reply_token) => {
 
   request.post({
     url: 'https://api.line.me/v2/bot/message/reply',
-    header,
-    body,
+    header: header,
+    body: body,
   }, (err, res, body) => {
       console.log('status = ' + res.statusCode)
   })
