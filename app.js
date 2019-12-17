@@ -2,19 +2,26 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
+const AIMLParser = require('aimlparser')
+
 const port = process.env.PORT || 4000
+const url = 'https://api.line.me/v2/bot/message/reply'
+const aimlParser = new AIMLParser({ name:'HelloBot' })
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
   let { replyToken } = req.body.events[0]
   let { text } = req.body.events[0].message
-  reply(replyToken, text)
+
+  aimlParser.getResult(text, (answer, wildCardArray, input) => {
+    reply(replyToken, answer)
+  })
+
   res.sendStatus(200)
 })
 app.listen(port)
 
-const url = 'https://api.line.me/v2/bot/message/reply'
 
 reply = (reply_token, text) => {
   let headers = {
