@@ -7,6 +7,7 @@ const AIMLParser = require('aimlparser')
 const port = process.env.PORT || 4000
 const url = 'https://api.line.me/v2/bot/message/reply'
 const aimlParser = new AIMLParser({ name:'HelloBot' })
+aimlParser.load(['./test-aiml.xml'])
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
