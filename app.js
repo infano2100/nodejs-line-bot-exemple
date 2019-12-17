@@ -37,6 +37,7 @@ reply = (replyToken = '') => {
     header,
     body,
   }, (err, res, body) => {
+      console.log('res = ' + res)
       console.log('status = ' + res.statusCode)
       console.log('error_description = ' + res.error_description)
   })
