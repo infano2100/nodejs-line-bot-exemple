@@ -20,8 +20,6 @@ reply = (replyToken = '') => {
     'Authorization': 'Bearer {punpuPSfr4UXjWEP4rUVZHMf/vhNHMjnXlOTPYRtB7pl33GkfIUtUS8MyWkfIG8PLQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOA35kPEvirxg93jRDAoawsK1cvGVickdYkqAMXW63WCEAdB04t89/1O/w1cDnyilFU=}'
   }
 
-  console.log('reply Func', replyToken)
-
   let body = JSON.stringify({
     replyToken,
     messages: [{
@@ -34,12 +32,13 @@ reply = (replyToken = '') => {
     }]
   })
 
-  console.log('reply Func body', body)
   request.post({
     url,
     header,
     body,
   }, (err, res, body) => {
       console.log('status = ' + res.statusCode)
+      console.log('err = ' + err)
+      console.log('body = ' + body)
   })
 }
