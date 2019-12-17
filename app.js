@@ -13,56 +13,31 @@ app.post('/webhook', (req, res) => {
 })
 app.listen(port)
 
+const url = 'https://api.line.me/v2/bot/message/reply'
 
 reply = (reply_token) => {
   let headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer {4n+lqCft0dHfz2Cu3oI5FDc+W1cM8VNQHfiHn2eoRK14dshoX+o8HkLJSl95IYc/LQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOAsyPdzj/El7aVSp2WQ0J2WvzwHzo5ElpS+WN0ZAe/9NgdB04t89/1O/w1cDnyilFU=}'
+    'Authorization': 'Bearer {4n+lqCft0dHfz2Cu3oI5FDc+W1cM8VNQHfiHn2eoRK14dshoX+o8HkLJSl95IYc/LQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOAsyPdzj/El7aVSp2WQ0J2WvzwHzo5ElpS+WN0ZAe/9NgdB04t89/1O/w1cDnyilFU=}',
   }
 
   let body = JSON.stringify({
     replyToken: reply_token,
     messages: [{
         type: 'text',
-        text: 'Hello'
+        text: 'Hello',
     },
     {
         type: 'text',
-        text: 'How are you?'
+        text: 'How are you?',
     }]
   })
 
   request.post({
-    url: 'https://api.line.me/v2/bot/message/reply',
+    url,
     headers,
-    body: body,
+    body,
   }, (err, res, body) => {
       console.log('status = ' + res.statusCode)
   })
 }
-
-// function reply(reply_token) {
-//   let headers = {
-//     'Content-Type': 'application/json',
-//     'Authorization': 'Bearer {4n+lqCft0dHfz2Cu3oI5FDc+W1cM8VNQHfiHn2eoRK14dshoX+o8HkLJSl95IYc/LQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOAsyPdzj/El7aVSp2WQ0J2WvzwHzo5ElpS+WN0ZAe/9NgdB04t89/1O/w1cDnyilFU=}'
-//   }
-//   let body = JSON.stringify({
-//     replyToken: reply_token,
-//     messages: [{
-//         type: 'text',
-//         text: 'Hello'
-//       },
-//       {
-//         type: 'text',
-//         text: 'How are you?'
-//       }
-//     ]
-//   })
-//   request.post({
-//     url: 'https://api.line.me/v2/bot/message/reply',
-//     headers: headers,
-//     body: body
-//   }, (err, res, body) => {
-//     console.log('status = ' + res.statusCode);
-//   });
-// }
