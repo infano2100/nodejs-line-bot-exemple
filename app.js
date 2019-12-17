@@ -5,7 +5,7 @@ const app = express()
 
 const port = process.env.PORT || 4000
 const url = 'https://api.line.me/v2/bot/message/reply'
-const token = '4n+lqCft0dHfz2Cu3oI5FDc+W1cM8VNQHfiHn2eoRK14dshoX+o8HkLJSl95IYc/LQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOAsyPdzj/El7aVSp2WQ0J2WvzwHzo5ElpS+WN0ZAe/9NgdB04t89/1O/w1cDnyilFU=' // Channel line access token 
+const token = '' // Channel line access token 
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
