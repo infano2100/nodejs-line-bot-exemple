@@ -6,7 +6,6 @@
   "scripts": {
     "test": "npm start",
     "start": "node app.js",
-    "deployH": "git add. && commit -m 'fix' && git push heroku master"
   },
   "author": "",
   "license": "ISC",

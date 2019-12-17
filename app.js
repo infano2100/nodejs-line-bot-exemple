@@ -8,8 +8,6 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
   let { replyToken } = req.body.events[0]
-  console.log('res webhook', req.body.events[0].replyToken)
-  console.log('res webhook', replyToken)
   reply(replyToken)
   res.sendStatus(200)
 })
@@ -21,6 +19,9 @@ reply = (replyToken = '') => {
     'Content-Type': 'application/json',
     'Authorization': 'Bearer {punpuPSfr4UXjWEP4rUVZHMf/vhNHMjnXlOTPYRtB7pl33GkfIUtUS8MyWkfIG8PLQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOA35kPEvirxg93jRDAoawsK1cvGVickdYkqAMXW63WCEAdB04t89/1O/w1cDnyilFU=}'
   }
+
+  console.log('reply Func', replyToken)
+
   let body = JSON.stringify({
     replyToken,
     messages: [{
@@ -32,6 +33,8 @@ reply = (replyToken = '') => {
         text: 'How are you?'
     }]
   })
+
+  console.log('reply Func body', body)
   request.post({
     url,
     header,
