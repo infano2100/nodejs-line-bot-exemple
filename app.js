@@ -17,7 +17,7 @@ const url = 'https://api.line.me/v2/bot/message/reply'
 reply = (replyToken = '') => {
   let header = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer {punpuPSfr4UXjWEP4rUVZHMf/vhNHMjnXlOTPYRtB7pl33GkfIUtUS8MyWkfIG8PLQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOA35kPEvirxg93jRDAoawsK1cvGVickdYkqAMXW63WCEAdB04t89/1O/w1cDnyilFU=}'
+    'Authorization': 'Bearer {4n+lqCft0dHfz2Cu3oI5FDc+W1cM8VNQHfiHn2eoRK14dshoX+o8HkLJSl95IYc/LQ0O/mZTcfytgDpNIdwpKTFoL3pcNwMn0Unoa37lUOAsyPdzj/El7aVSp2WQ0J2WvzwHzo5ElpS+WN0ZAe/9NgdB04t89/1O/w1cDnyilFU=}'
   }
 
   let body = JSON.stringify({
