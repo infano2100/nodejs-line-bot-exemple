@@ -5,8 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "npm start",
-    "start": "node app.js",
-    "depoly": "git add . && git commit -m 'fix' && git push heroku master"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
