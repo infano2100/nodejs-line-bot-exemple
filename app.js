@@ -7,10 +7,10 @@ const port = process.env.PORT || 4000
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.post('/webhook', (req, res) => {
-  let reply_token = req.body.events[0].reply_token
-  console.log('res webhook', req.body.events[0].reply_token)
-  console.log('res webhook', reply_token)
-  reply(reply_token)
+  let { replyToken } = req.body.events[0]
+  console.log('res webhook', req.body.events[0].replyToken)
+  console.log('res webhook', replyToken)
+  reply(replyToken)
   res.sendStatus(200)
 })
 app.listen(port)
